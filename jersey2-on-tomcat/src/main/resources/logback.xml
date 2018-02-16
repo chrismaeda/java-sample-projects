@@ -1,0 +1,24 @@
+<configuration debug="true">
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+  	<append>true</append>
+  	
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${catalina.base}/logs/jersey2-sample.%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+  	 	
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{30} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="samples" level="DEBUG"/>
+
+  <root level="INFO">          
+    <appender-ref ref="FILE" />
+  </root>  
+  
+</configuration>
